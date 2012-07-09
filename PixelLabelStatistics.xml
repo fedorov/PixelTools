@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+  <category>Quantification</category>
+  <title>PixelLabelStatistics</title>
+  <description>none</description>
+  <version>0.1</version>
+  <documentation-url></documentation-url>
+  <license>none</license>
+  <contributor>Andrey Fedorov</contributor>
+<acknowledgements>none</acknowledgements>
+
+  <parameters>
+    <label>IO</label>
+    <description>Input/output parameters</description>
+
+    <image type="label">
+      <name>InputLabel</name>
+      <label>Input Label</label>
+      <channel>input</channel>
+      <index>0</index>
+      <description>Input label</description>
+    </image>
+
+    <image>
+      <name>InputVolume</name>
+      <label>Input Volume</label>
+      <channel>input</channel>
+      <index>1</index>
+      <description>Input volume</description>
+    </image>
+
+    <image>
+      <name>RsqVolume</name>
+      <label>Residual squares volume</label>
+      <channel>input</channel>
+      <longflag>rsqimage</longflag>
+      <description>Volume containing fitting residual squares</description>
+    </image>
+
+     <float>
+      <name>MinRsq</name>
+      <label>Minimum Rsq</label>
+      <longflag>minrsq</longflag>
+      <flag>r</flag>
+      <default>0.75</default>
+      <description>Cut-off threshold for rsq values</description>
+    </float>
+
+    <integer>
+      <name>LabelOfInterest</name>
+      <label>Label of interest</label>
+      <longflag>loi</longflag>
+      <default>-1</default>
+      <description>Only voxels assigned this label value will be considered</description>
+    </integer>
+
+    <boolean>
+      <name>OutputType</name>
+      <label>Simple (1) or Extended (0) output</label>
+      <longflag>fullreport</longflag>
+      <description>Extended report will include the coordinates of each point</description>
+    </boolean>
+
+    <string>
+      <name>CaseID</name>
+      <label>CaseID</label>
+      <longflag>caseid</longflag>
+      <default>-1</default>
+      <description>CaseID will be printed out for convenience</description>
+    </string>
+
+
+  </parameters>
+</executable>
