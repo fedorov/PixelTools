@@ -9,6 +9,10 @@
 // Description:
 // Calculate certain statistics measures; this is promarily for
 // post-processing of DCE parameter maps and quantification
+// 
+// NOTE: the input volumes do not need to have the same pixel raster, statistics
+// is extracted based on the physical coordinates of non-zero pixels in the label 
+//volume. The input maps do not need to be resampled to the same reference.
 
 #include "itkImage.h"
 #include "itkImageFileReader.h"
