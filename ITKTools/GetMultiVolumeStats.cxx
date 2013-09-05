@@ -69,9 +69,14 @@ int main(int argc, char* argv[]){
     ImageType::PointType pt;
     images[0]->TransformIndexToPhysicalPoint(idx,pt);
     std::cout << caseID << "," << itLabel.Get() << "," << 
-      pt[0] << "," << pt[1] << "," << pt[2] << ",";
+      pt[0] << "," << pt[1] << "," << pt[2] << ",";    
     for(int i=1;i<images.size();i++){
-      std::cout << images[i]->GetPixel(itLabel.GetIndex());
+      ImageType::IndexType idxImage;
+      if(!images[i]->TransformPhysicalPointToIndex(pt, idxImage)){
+        std::cerr << "Attempt to sample a point outside image " << i << ": failed" << std::endl;
+        return -1;
+      }
+      std::cout << images[i]->GetPixel(idxImage);
       if(i<images.size()-1)
         std::cout << ",";
     }
